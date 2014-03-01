@@ -1,5 +1,4 @@
 call pathogen#infect()
-autocmd vimenter * NERDTree
 autocmd BufWritePre * :%s/\s\+$//e
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
@@ -12,8 +11,10 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+autocmd vimEnter * :set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
+nnoremap <C-e> :NERDTreeToggle<CR>
 
 :au FocusLost * :set number
 :au FocusGained * :set relativenumber
